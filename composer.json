@@ -1,0 +1,19 @@
+{
+    "name": "roos/dertraktor-test",
+    "description": "Test task",
+    "authors": [
+        {
+            "name": "Ruslan Kladko",
+            "email": "rkladko@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "php-amqplib/php-amqplib": "^2.6",
+        "symfony/console": "^3.0",
+        "symfony/yaml": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {"Traktor\\Bot\\": "src/"}
+    }
+}
