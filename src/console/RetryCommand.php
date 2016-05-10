@@ -36,6 +36,6 @@ class RetryCommand extends Command
     {
         $limit = $input->getOption('n');
         Queue::retry($limit);
-        $output->writeln('Finished');
+        $output->writeln('Ok');
     }
 }

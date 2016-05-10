@@ -6,5 +6,6 @@ amqp.pswd: guest
 folder.temp: ./temp
 folder.images_resized: ./images_resized
 
-gdrive.clientid: 876807043295-qqnceudc50rcqglbdiqjaoslmt68f3g0.apps.googleusercontent.com
-gdrive.secret: 92bHI5uNIMEXjfmroYYomIw2
+gdrive.credentials.path: ~/.credentials/gdrive.json
+gdrive.client_secret_path: ~/.credentials/gdrive-secret.json
+gdrive.redirect_uri: https://oauth2-login-demo.appspot.com/oauthcallback

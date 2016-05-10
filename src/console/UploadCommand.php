@@ -36,6 +36,6 @@ class UploadCommand extends Command
     {
         $limit = $input->getOption('n');
         Queue::upload($limit);
-        $output->writeln('Finished');
+        $output->writeln('Ok');
     }
 }

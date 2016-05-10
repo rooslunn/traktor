@@ -12,3 +12,13 @@ if (! function_exists('config')) {
     }
 }
 
+if (! function_exists('expandHomeDirectory')) {
+    function expandHomeDirectory($path) {
+        $homeDirectory = getenv('HOME');
+        if (empty($homeDirectory)) {
+            $homeDirectory = getenv("HOMEDRIVE") . getenv("HOMEPATH");
+        }
+        return str_replace('~', realpath($homeDirectory), $path);
+    }
+}
+

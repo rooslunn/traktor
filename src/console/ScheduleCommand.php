@@ -36,6 +36,6 @@ class ScheduleCommand extends Command
         if ($path) {
             Queue::schedule($path);
         }
-        $output->writeln('Finished');
+        $output->writeln('Ok');
     }
 }

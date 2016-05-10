@@ -36,6 +36,6 @@ class ResizeCommand extends Command
     {
         $limit = $input->getOption('count');
         Queue::resize($limit);
-        $output->writeln('Finished');
+        $output->writeln('Ok');
     }
 }
