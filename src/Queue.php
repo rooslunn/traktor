@@ -99,6 +99,12 @@ class Queue implements QueueInterface
         $channel->close();
     }
 
+    protected static function dequeueWithCount(QueueTask $task)
+    {
+        $queue = static::getInstance();
+        $queue->dequeue($task);
+    }
+
     public static function schedule(string $path)
     {
         $realpath = realpath($path);
@@ -114,14 +120,12 @@ class Queue implements QueueInterface
 
     public static function resize(int $limit = 0)
     {
-        $queue = static::getInstance();
-        $queue->dequeue(new ResizeImage(QueueType::RESIZE, QueueType::UPLOAD, $limit));
+        static::dequeueWithCount(new ResizeImage(QueueType::RESIZE, QueueType::UPLOAD, $limit));
     }
 
     public static function upload(int $limit = 0)
     {
-        $queue = static::getInstance();
-        $queue->dequeue(new GoogleUpload(QueueType::UPLOAD, QueueType::DONE, $limit));
+        static::dequeueWithCount(new GoogleUpload(QueueType::UPLOAD, QueueType::DONE, $limit));
     }
 
     public static function status(): array
@@ -132,7 +136,6 @@ class Queue implements QueueInterface
 
     public static function retry(int $limit)
     {
-        $queue = static::getInstance();
-        $queue->dequeue(new RetryImages(QueueType::FAILED, QueueType::UPLOAD, $limit));
+        static::dequeueWithCount(new RetryImages(QueueType::FAILED, QueueType::UPLOAD, $limit));
     }
 }
