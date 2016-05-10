@@ -33,6 +33,27 @@ class Queue implements QueueInterface
         $this->connection->close();
     }
 
+
+    protected function queuesStatus(): array
+    {
+        $channel = $this->connection->channel();
+        $queues = [
+            QueueType::RESIZE,
+            QueueType::UPLOAD,
+            QueueType::DONE,
+            QueueType::FAILED,
+        ];
+        
+        $result = [];
+        foreach ($queues as $q) {
+            list(, $jobs) = $channel->queue_declare($q, false, true, false, false);
+            $result[$q] = $jobs;
+        }
+        $channel->close();
+        
+        return $result;
+    }
+
     protected function enqueue(string $queue_name, string $message_body)
     {
         $channel = $this->connection->channel();
@@ -99,5 +120,11 @@ class Queue implements QueueInterface
     {
         $queue = static::getInstance();
         $queue->dequeue(new GoogleUpload(QueueType::UPLOAD, QueueType::DONE, $limit));
+    }
+
+    static public function status(): array
+    {
+        $queue = static::getInstance();
+        return $queue->queuesStatus();
     }
 }
