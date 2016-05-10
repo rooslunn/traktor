@@ -1,5 +1,7 @@
 # Images Processor Bot #
 
+[![Scrutinizer Code Quality][ico-code-quality]][link-code-quality]
+
 **Requirements: PHP 7.0, [RabbitMQ](http://www.rabbitmq.com/download.html)**
 
 CLI script for batch image processing.
@@ -88,3 +90,9 @@ Moves all URLs from failed  queue back to upload  queue.
 ```bash
 $ php bot.php retry [-N <count>]
 ```
+
+Author: Rooslunn <rooslunn@gmail.com>
+
+[ico-code-quality]: https://scrutinizer-ci.com/g/rooslunn/traktor/badges/quality-score.png?b=master
+[link-code-quality]: https://scrutinizer-ci.com/g/rooslunn/traktor/?branch=master
+
