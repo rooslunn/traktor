@@ -6,12 +6,16 @@
  * Time: 8:37 PM
  */
 
-namespace Traktor\Bot;
+namespace Traktor\Bot\Task;
 
 
 use PhpAmqpLib\Message\AMQPMessage;
+use Traktor\Bot\BaseQueueTask;
+use Traktor\Bot\QueueTask;
+use Traktor\Bot\TaskResponse;
+use Traktor\Bot\TaskResult;
 
-class ResizeImageTask implements QueueTask
+class ResizeImage implements QueueTask
 {
     use BaseQueueTask;
     

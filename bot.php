@@ -12,3 +12,4 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 Queue::schedule('./images');
 Queue::resize();
+Queue::upload();

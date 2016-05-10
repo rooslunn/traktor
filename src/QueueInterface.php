@@ -13,4 +13,5 @@ interface QueueInterface
 {
     static public function schedule(string $path);
     static public function resize(int $limit);
+    static public function upload(int $limit);
 }

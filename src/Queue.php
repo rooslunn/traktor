@@ -11,6 +11,8 @@ namespace Traktor\Bot;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
+use Traktor\Bot\Task\GoogleUpload;
+use Traktor\Bot\Task\ResizeImage;
 
 class Queue implements QueueInterface
 {
@@ -53,14 +55,14 @@ class Queue implements QueueInterface
         $channel->basic_qos(null, 1, null);
         $channel->basic_consume($queue_name, '', false, false, false, false,
             function(AMQPMessage $msg) use ($task) {
-                echo ' [x] Received ', $msg->body, PHP_EOL;
+                printf(" [+] %s Received: %s\n", $task->getQueueName(), $msg->body);
                 $result = $task->execute($msg);
                 if (TaskResponse::SUCCESS === $result->code) {
                     $this->enqueue($task->getNextQueue(), $result->message);
-                    echo ' [x] Done', PHP_EOL;
+                    echo ' [+] Done', PHP_EOL;
                 } else {
                     $this->enqueue(QueueType::FAILED, $msg->body);
-                    echo ' [x] Failed', PHP_EOL;
+                    echo ' [-] Failed: ', $result->message, PHP_EOL;
                 }
                 $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
             }
@@ -90,6 +92,12 @@ class Queue implements QueueInterface
     static public function resize(int $limit = 0)
     {
         $queue = static::getInstance();
-        $queue->dequeue(new ResizeImageTask(QueueType::RESIZE, QueueType::UPLOAD, $limit));
+        $queue->dequeue(new ResizeImage(QueueType::RESIZE, QueueType::UPLOAD, $limit));
+    }
+
+    static public function upload(int $limit = 0)
+    {
+        $queue = static::getInstance();
+        $queue->dequeue(new GoogleUpload(QueueType::UPLOAD, QueueType::DONE, $limit));
     }
 }

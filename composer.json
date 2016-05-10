@@ -11,7 +11,8 @@
         "php": "^7.0",
         "php-amqplib/php-amqplib": "^2.6",
         "symfony/console": "^3.0",
-        "symfony/yaml": "^3.0"
+        "symfony/yaml": "^3.0",
+        "google/apiclient": "1.*"
     },
     "autoload": {
         "psr-4": {"Traktor\\Bot\\": "src/"},
