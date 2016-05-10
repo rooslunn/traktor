@@ -35,7 +35,7 @@ class UploadCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $limit = $input->getOption('n');
-        Queue::resize($limit);
+        Queue::upload($limit);
         $output->writeln('Finished');
     }
 }
