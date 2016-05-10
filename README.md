@@ -2,6 +2,7 @@
 
 [![PHP 7 ready][ico-php7-ready]][link-php7-ready]
 [![Scrutinizer Code Quality][ico-code-quality]][link-code-quality]
+[![Code Coverage][ico-code-coverage]][link-code-coverage]
 [![Build Status][ico-travis]][link-travis]
 
 **Requirements: PHP 7.0, [RabbitMQ](http://www.rabbitmq.com/download.html)**
@@ -104,3 +105,6 @@ Author: Rooslunn <rooslunn@gmail.com>
 
 [ico-travis]: https://travis-ci.org/rooslunn/traktor.svg?branch=master
 [link-travis]: https://travis-ci.org/rooslunn/traktor
+
+[ico-code-coverage]: https://scrutinizer-ci.com/g/rooslunn/traktor/badges/coverage.png?b=master
+[link-code-coverage]: https://scrutinizer-ci.com/g/rooslunn/traktor/?branch=master
