@@ -99,7 +99,7 @@ class Queue implements QueueInterface
         $channel->close();
     }
 
-    static public function schedule(string $path)
+    public static function schedule(string $path)
     {
         $realpath = realpath($path);
         if (false === $realpath) {
@@ -112,25 +112,25 @@ class Queue implements QueueInterface
         }
     }
 
-    static public function resize(int $limit = 0)
+    public static function resize(int $limit = 0)
     {
         $queue = static::getInstance();
         $queue->dequeue(new ResizeImage(QueueType::RESIZE, QueueType::UPLOAD, $limit));
     }
 
-    static public function upload(int $limit = 0)
+    public static function upload(int $limit = 0)
     {
         $queue = static::getInstance();
         $queue->dequeue(new GoogleUpload(QueueType::UPLOAD, QueueType::DONE, $limit));
     }
 
-    static public function status(): array
+    public static function status(): array
     {
         $queue = static::getInstance();
         return $queue->queuesStatus();
     }
 
-    static public function retry(int $limit)
+    public static function retry(int $limit)
     {
         $queue = static::getInstance();
         $queue->dequeue(new RetryImages(QueueType::FAILED, QueueType::UPLOAD, $limit));

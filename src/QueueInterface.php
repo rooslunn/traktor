@@ -11,9 +11,9 @@ namespace Traktor\Bot;
 
 interface QueueInterface
 {
-    static public function schedule(string $path);
-    static public function resize(int $limit);
-    static public function upload(int $limit);
-    static public function status(): array;
-    static public function retry(int $limit);
+    public static function schedule(string $path);
+    public static function resize(int $limit);
+    public static function upload(int $limit);
+    public static function status(): array;
+    public static function retry(int $limit);
 }

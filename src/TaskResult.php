@@ -14,7 +14,7 @@ class TaskResult
     public $code;
     public $message;
 
-    static public function initOk(): TaskResult
+    public static function initOk(): TaskResult
     {
         $instance = new static();
         $instance->code = TaskResponse::SUCCESS;
