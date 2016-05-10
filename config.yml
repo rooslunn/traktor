@@ -2,3 +2,6 @@ amqp.host: localhost
 amqp.port: 5672
 amqp.user: guest
 amqp.pswd: guest
+
+folder.temp: ./temp
+folder.images_resized: ./images_resized

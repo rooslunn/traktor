@@ -6,7 +6,9 @@
  * Time: 1:56 PM
  */
 
+use Traktor\Bot\Queue;
+
 require_once __DIR__ . '/vendor/autoload.php';
 
-echo config('amqp.host') . PHP_EOL;
-
+Queue::schedule('./images');
+Queue::resize();

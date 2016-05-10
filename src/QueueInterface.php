@@ -11,8 +11,6 @@ namespace Traktor\Bot;
 
 interface QueueInterface
 {
-    public function schedule(ScheduleTaskRequest $request): TaskResponseInterface;
-    public function resize(NumberTaskRequest $request): TaskResponseInterface;
-    public function upload(NumberTaskRequest $request): TaskResponseInterface;
-    public function status();
+    static public function schedule(string $path);
+    static public function resize(int $limit);
 }

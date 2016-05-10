@@ -3,13 +3,14 @@
  * Created by PhpStorm.
  * User: russ
  * Date: 09.05.16
- * Time: 1:18 PM
+ * Time: 4:55 PM
  */
 
 namespace Traktor\Bot;
 
 
-interface TaskResponseInterface
+class TaskResponse
 {
-    public function isSuccess(): bool;
+    const SUCCESS = 0;
+    const FAIL = -1;
 }

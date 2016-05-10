@@ -11,3 +11,4 @@ if (! function_exists('config')) {
         return \Traktor\Bot\Config::getInstance()->get($key, $defaultValue);
     }
 }
+
