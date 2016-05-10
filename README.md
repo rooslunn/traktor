@@ -34,7 +34,7 @@ Available commands:
   upload    Upload next images to remote storage
 ```
 
-## Scheduler ##
+### 1. Scheduler ###
 
 Accepts a path to the directory with images and schedule them for resize, i.e. adds to resize queue.
 
@@ -42,7 +42,7 @@ Accepts a path to the directory with images and schedule them for resize, i.e. a
 $ php bot.php schedule ./images
 ```
 
-## Resizer ##
+### 2. Resizer ###
 
 akes next count of images from resize queue and resizes them to 640x640 pixels in jpg format. 
 If image is not a square shape resizer will make it square by means of adding a white background. 
@@ -54,7 +54,7 @@ $ php bot.php resize [-N <count>]
 
 If parameter -n is omitted resize processes all images from resize queue.
 
-## Uploader ##
+### 3. Uploader ###
 
 Uploads next count of images from upload queue to Google Drive Storage.
 
@@ -64,7 +64,7 @@ $ php bot.php upload [-N <count>]
 
 If parameter -n is omitted resize processes all images from resize queue.
 
-## Monitoring ##
+### 4. Monitoring ###
 
 Outputs all queues with a count of URLs in each of them.
 
@@ -81,7 +81,7 @@ done       0
 failed     1  
 ```
 
-## Rescheduler ##
+### 5. Rescheduler ###
 
 Moves all URLs from failed  queue back to upload  queue.
 
