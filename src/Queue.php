@@ -11,6 +11,7 @@ namespace Traktor\Bot;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
+use Traktor\Bot\Exception\RealpathFailed;
 use Traktor\Bot\Task\GoogleUpload;
 use Traktor\Bot\Task\ResizeImage;
 use Traktor\Bot\Task\RetryImages;
@@ -102,7 +103,7 @@ class Queue implements QueueInterface
     {
         $realpath = realpath($path);
         if (false === $realpath) {
-            throw new RealPathException($path);
+            throw new RealpathFailed($path);
         }
 
         $queue = static::getInstance();

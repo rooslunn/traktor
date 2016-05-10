@@ -9,18 +9,8 @@
 namespace Traktor\Bot;
 
 
-use Exception;
-use RuntimeException;
 use Symfony\Component\Yaml\Yaml;
-
-class ConfigNotExist extends RuntimeException
-{
-    public function __construct($filename, $code=0, Exception $previous=null)
-    {
-        $message = sprintf('Config file doesn\'t exist: %s', $filename);
-        parent::__construct($message, $code, $previous);
-    }
-}
+use Traktor\Bot\Exception\ConfigNotExists;
 
 class Config
 {
@@ -33,7 +23,7 @@ class Config
     protected function init()
     {
         if (! file_exists(self::CONFIG_FILE)) {
-            throw new ConfigNotExist(self::CONFIG_FILE);
+            throw new ConfigNotExists(self::CONFIG_FILE);
         }
         $this->yaml = Yaml::parse(file_get_contents(self::CONFIG_FILE));
     }

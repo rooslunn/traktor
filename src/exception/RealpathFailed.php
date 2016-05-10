@@ -3,13 +3,13 @@
  * Created by PhpStorm.
  * User: russ
  * Date: 10.05.16
- * Time: 8:09 AM
+ * Time: 3:49 PM
  */
 
-namespace Traktor\Bot;
+namespace Traktor\Bot\Exception;
 
 
-class RealPathException extends \Exception
+class RealpathFailed extends \Exception
 {
     public function __construct($path)
     {
