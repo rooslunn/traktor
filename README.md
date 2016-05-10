@@ -1,6 +1,7 @@
 # Images Processor Bot #
 
 [![Scrutinizer Code Quality][ico-code-quality]][link-code-quality]
+[![PHP 7 ready][ico-php7-ready]]
 
 **Requirements: PHP 7.0, [RabbitMQ](http://www.rabbitmq.com/download.html)**
 
@@ -95,4 +96,4 @@ Author: Rooslunn <rooslunn@gmail.com>
 
 [ico-code-quality]: https://scrutinizer-ci.com/g/rooslunn/traktor/badges/quality-score.png?b=master
 [link-code-quality]: https://scrutinizer-ci.com/g/rooslunn/traktor/?branch=master
-
+[ico-php7-ready]: http://php7ready.timesplinter.ch/rooslunn/traktor/badge.svg
