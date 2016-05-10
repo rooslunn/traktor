@@ -10,16 +10,31 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use Traktor\Bot\Console\ResizeCommand;
-use Traktor\Bot\Console\ScheduleCommand;
-use Traktor\Bot\Console\StatusCommand;
-use Traktor\Bot\Console\UploadCommand;
+use Traktor\Bot\Console\{
+    ResizeCommand,
+    RetryCommand,
+    ScheduleCommand,
+    StatusCommand,
+    UploadCommand
+};
 
 $app = new Application();
 
-$app->add(new ScheduleCommand());
-$app->add(new ResizeCommand());
-$app->add(new UploadCommand());
-$app->add(new StatusCommand());
+$commands = [
+    ScheduleCommand::class,
+    ResizeCommand::class,
+    UploadCommand::class,
+    StatusCommand::class,
+    RetryCommand::class,
+];
+
+foreach ($commands as $class) {
+    $app->add(new $class());
+}
+//$app->add(new ScheduleCommand());
+//$app->add(new ResizeCommand());
+//$app->add(new UploadCommand());
+//$app->add(new StatusCommand());
+//$app->add(new RetryCommand());
 
 $app->run();

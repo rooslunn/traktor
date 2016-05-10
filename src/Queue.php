@@ -13,6 +13,7 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 use Traktor\Bot\Task\GoogleUpload;
 use Traktor\Bot\Task\ResizeImage;
+use Traktor\Bot\Task\RetryImages;
 
 class Queue implements QueueInterface
 {
@@ -76,7 +77,7 @@ class Queue implements QueueInterface
         $channel->basic_qos(null, 1, null);
         $channel->basic_consume($queue_name, '', false, false, false, false,
             function(AMQPMessage $msg) use ($task) {
-                printf(" [+] %s Received: %s\n", $task->getQueueName(), $msg->body);
+                printf(" [+] Queue: %s, received: %s\n", $task->getQueueName(), $msg->body);
                 $result = $task->execute($msg);
                 if (TaskResponse::SUCCESS === $result->code) {
                     $this->enqueue($task->getNextQueue(), $result->message);
@@ -126,5 +127,11 @@ class Queue implements QueueInterface
     {
         $queue = static::getInstance();
         return $queue->queuesStatus();
+    }
+
+    static public function retry(int $limit)
+    {
+        $queue = static::getInstance();
+        $queue->dequeue(new RetryImages(QueueType::FAILED, QueueType::UPLOAD, $limit));
     }
 }

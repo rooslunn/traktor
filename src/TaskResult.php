@@ -13,4 +13,13 @@ class TaskResult
 {
     public $code;
     public $message;
+
+    static public function initOk(): TaskResult
+    {
+        $instance = new static();
+        $instance->code = TaskResponse::SUCCESS;
+        $instance->message = 'Well done';
+        return $instance;
+    }
+
 }

@@ -15,4 +15,5 @@ interface QueueInterface
     static public function resize(int $limit);
     static public function upload(int $limit);
     static public function status(): array;
+    static public function retry(int $limit);
 }
