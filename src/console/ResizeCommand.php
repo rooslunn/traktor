@@ -22,10 +22,10 @@ class ResizeCommand extends Command
     protected function configure()
     {
         $this->setName('resize')
-            ->setDescription('Resize images')
+            ->setDescription('Resize next images from the queue')
             ->addOption(
-                'n',
-                null,
+                'count',
+                'N',
                 InputOption::VALUE_OPTIONAL,
                 'Process first n tasks',
                 0
@@ -34,7 +34,7 @@ class ResizeCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $limit = $input->getOption('n');
+        $limit = $input->getOption('count');
         Queue::resize($limit);
         $output->writeln('Finished');
     }

@@ -22,7 +22,7 @@ class ScheduleCommand extends Command
     protected function configure()
     {
         $this->setName('schedule')
-            ->setDescription('Schedule resize task')
+            ->setDescription('Add filenames to resize queue')
             ->addArgument(
                 'path',
                 InputArgument::REQUIRED,

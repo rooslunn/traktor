@@ -18,7 +18,7 @@ use Traktor\Bot\Console\{
     UploadCommand
 };
 
-$app = new Application();
+$app = new Application('Images Processor Bot', '0.1');
 
 $commands = [
     ScheduleCommand::class,
@@ -31,10 +31,5 @@ $commands = [
 foreach ($commands as $class) {
     $app->add(new $class());
 }
-//$app->add(new ScheduleCommand());
-//$app->add(new ResizeCommand());
-//$app->add(new UploadCommand());
-//$app->add(new StatusCommand());
-//$app->add(new RetryCommand());
 
 $app->run();

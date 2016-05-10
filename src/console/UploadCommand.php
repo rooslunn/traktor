@@ -22,7 +22,7 @@ class UploadCommand extends Command
     protected function configure()
     {
         $this->setName('upload')
-            ->setDescription('Upload images')
+            ->setDescription('Upload next images to remote storage')
             ->addOption(
                 'n',
                 null,

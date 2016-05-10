@@ -24,7 +24,7 @@ class StatusCommand extends Command
     protected function configure()
     {
         $this->setName('status')
-            ->setDescription('Shows queue status');
+            ->setDescription('Output current status in format queue: number_of_images');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
