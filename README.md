@@ -2,6 +2,7 @@
 
 [![Scrutinizer Code Quality][ico-code-quality]][link-code-quality]
 [![Build Status][ico-travis]][link-travis]
+[![PHP 7 ready][ico-php7-ready]][link-php7-ready]
 
 **Requirements: PHP 7.0, [RabbitMQ](http://www.rabbitmq.com/download.html)**
 
@@ -94,8 +95,12 @@ $ php bot.php retry [-N <count>]
 
 Author: Rooslunn <rooslunn@gmail.com>
 
+
 [ico-code-quality]: https://scrutinizer-ci.com/g/rooslunn/traktor/badges/quality-score.png?b=master
 [link-code-quality]: https://scrutinizer-ci.com/g/rooslunn/traktor/?branch=master
+
 [ico-php7-ready]: http://php7ready.timesplinter.ch/rooslunn/traktor/badge.svg
+[link-php7-ready]: https://travis-ci.org/rooslunn/traktor
+
 [ico-travis]: https://travis-ci.org/rooslunn/traktor.svg?branch=master
 [link-travis]: https://travis-ci.org/rooslunn/traktor

@@ -11,7 +11,7 @@ sudo: false
 matrix:
   fast_finish: true
   include:
-    - php: 5.3
+    - php: 7.0
       env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 
 before_script:
