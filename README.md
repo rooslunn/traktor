@@ -1,8 +1,8 @@
 # Images Processor Bot #
 
+[![PHP 7 ready][ico-php7-ready]][link-php7-ready]
 [![Scrutinizer Code Quality][ico-code-quality]][link-code-quality]
 [![Build Status][ico-travis]][link-travis]
-[![PHP 7 ready][ico-php7-ready]][link-php7-ready]
 
 **Requirements: PHP 7.0, [RabbitMQ](http://www.rabbitmq.com/download.html)**
 
